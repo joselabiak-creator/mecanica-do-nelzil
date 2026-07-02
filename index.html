@@ -129,6 +129,18 @@
     <footer>
         <p>&copy; 2026 Oficina Mecânica. Trabalho desenvolvido para fins educacionais - Curso Técnico em Desenvolvimento de Sistemas.</p>
     </footer>
-
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o navegador de tentar recarregar a página e dar erro
+        
+        // Aqui você pega os dados preenchidos se quiser
+        const nome = document.getElementById('nome').value;
+        
+        // Exibe uma mensagem amigável de sucesso
+        alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso (Simulação).`);
+        
+        this.reset(); // Limpa os campos do formulário
+    });
+</script>
 </body>
 </html>
