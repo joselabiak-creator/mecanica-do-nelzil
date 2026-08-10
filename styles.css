@@ -206,6 +206,58 @@ button:active {
     transform: translateY(0);
 }
 
+.form-feedback {
+    display: none;
+    margin-top: 16px;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #ffb74d;
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #1a237e;
+    color: #ffffff;
+    padding: 10px 16px;
+    z-index: 1000;
+    transition: top 0.25s ease;
+    text-decoration: none;
+}
+
+.skip-link:focus-visible {
+    top: 10px;
+}
+
+.main-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    list-style: none;
+    margin: 20px auto 0;
+    padding: 0;
+}
+
+.main-navigation a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus-visible {
+    text-decoration: underline;
+}
 
 .map-container,
 .video-container {
@@ -240,26 +292,74 @@ footer {
 }
 
 
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.45rem;
+    }
+
+    p,
+    .schedule-table th,
+    .schedule-table td,
+    label,
+    input,
+    textarea,
+    button {
+        font-size: 0.98rem;
+    }
+
+    section {
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 @media (max-width: 600px) {
     body {
         padding: 12px;
     }
-    
+
     h1 {
         font-size: 1.7rem;
     }
-    
+
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
-    
+
     section {
-        padding: 20px;
+        padding: 18px;
         margin-bottom: 20px;
     }
-    
+
+    .services-list {
+        margin-left: 18px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .form-group {
+        gap: 12px;
+    }
+
     button {
-        width: 100%; 
-        text-align: center;
+        padding: 13px 18px;
     }
 }

@@ -12,24 +12,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
 
     <header>
         <h1>Agende seu horário aqui</h1>
+        <nav aria-label="Navegação principal">
+            <ul class="main-navigation">
+                <li><a href="#introducao">Sobre a oficina</a></li>
+                <li><a href="#servicos">Nossos serviços</a></li>
+                <li><a href="#horarios">Horários de atendimento</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#localizacao">Localização</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
+    <main id="conteudo">
         
-        <section class="intro-section">
+        <section id="introducao" class="intro-section">
             <p><strong>Mecânica com os melhores profissionais e os produtos de melhor qualidade.</strong></p>
             <p>A mecânica está localizada na Rua Marechal Floriano, número 870. Marque seu horário pelo site ou presencialmente.</p>
-            
+            <p>Se preferir, <a href="#contato">preencha nosso formulário de contato</a> ou <a href="#localizacao">veja nossa localização no mapa</a>.</p>
             <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600" alt="Fotografia do interior de uma oficina mecânica com ferramentas">
-            
             <p>A nossa mecânica está preparada para atender você melhor. Temos uma sala confortável para nossos clientes aguardarem.</p>
         </section>
          
-        <section>
+        <section id="servicos">
             <h2>Nossos Serviços</h2>
+            <h3>Serviços de manutenção automotiva</h3>
             <p>Em nossa mecânica oferecemos os seguintes serviços especializados:</p>
             <ul class="services-list">  
                 <li>Troca de óleo</li>
@@ -40,14 +50,15 @@
             </ul>
         </section>
         
-        <section>
+        <section id="horarios">
             <h2>Horários de Atendimento</h2>
             <div class="table-container">
                 <table class="schedule-table">
+                    <caption>Horários de funcionamento da oficina</caption>
                     <thead>
                         <tr>
-                            <th>Dia da Semana</th>
-                            <th>Horário de Funcionamento</th>
+                            <th scope="col">Dia da Semana</th>
+                            <th scope="col">Horário de Funcionamento</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,8 +83,9 @@
             </div>
         </section>
 
-        <section>
+        <section id="contato">
             <h2>Entre em Contato</h2>
+            <h3>Formulário de atendimento</h3>
             <form action="#" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome Completo</label>
@@ -97,9 +109,11 @@
 
                 <button type="submit">Enviar Mensagem</button>
             </form>
+            <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+            <p class="contact-help">Precisa de ajuda? <a href="mailto:contato@oficinamecanica.com.br">Envie um e-mail para contato@oficinamecanica.com.br</a> ou ligue para <a href="tel:+5541999999999">+55 (41) 99999-9999</a>.</p>
         </section>
 
-        <section>
+        <section id="video">
             <h2>Vídeo da Nossa Oficina</h2>
             <div class="video-container">
                 <iframe 
@@ -112,14 +126,15 @@
             </div>
         </section>
 
-        <section>
+        <section id="localizacao">
             <h2>Localização</h2>
             <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.244795292437!2d-51.217318!3d-30.034647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzA0LjciUyA1McKwMTMnMDIuMyJX!5e0!3m2!1spt-BR!2sbr!4v1625000000000!5m2!1spt-BR!2sbr" 
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3627.8038375529636!2d-52.274121290269136!3d-24.595965174217348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94eddbf94de9d4bf%3A0xa16af35d22f0ee37!2sR.%20Mal.%20Floriano%2C%20870%20-%20Roncador%2C%20PR%2C%2087320-000!5e0!3m2!1spt-BR!2sbr!4v1785763327269!5m2!1spt-BR!2sbr"
                     title="Mapa de Localização da Oficina"
-                    allowfullscreen="" 
-                    loading="lazy">
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
             </div>
         </section>
@@ -131,15 +146,13 @@
     </footer>
 <script>
     document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede o navegador de tentar recarregar a página e dar erro
-        
-        // Aqui você pega os dados preenchidos se quiser
+        event.preventDefault();
         const nome = document.getElementById('nome').value;
-        
-        // Exibe uma mensagem amigável de sucesso
-        alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso (Simulação).`);
-        
-        this.reset(); // Limpa os campos do formulário
+        const feedback = document.getElementById('form-feedback');
+        feedback.textContent = `Obrigado, ${nome}! Sua mensagem foi enviada com sucesso (Simulação).`;
+        feedback.style.display = 'block';
+        this.reset();
+        document.getElementById('nome').focus();
     });
 </script>
 </body>
