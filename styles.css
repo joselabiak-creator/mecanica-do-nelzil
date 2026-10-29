@@ -70,7 +70,7 @@ p {
 }
 
 
-section {
+main > section {
     background: var(--card-bg);
     padding: 30px;
     border-radius: var(--border-radius);
@@ -179,7 +179,7 @@ input:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.15);
 }
 
-button {
+form button {
     background-color: var(--primary-color);
     color: #ffffff;
     padding: 14px 24px;
@@ -196,13 +196,13 @@ button {
     width: auto;
 }
 
-button:hover {
+form button:hover {
     background-color: #b71c1c;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(211, 47, 47, 0.3);
 }
 
-button:active {
+form button:active {
     transform: translateY(0);
 }
 
@@ -287,7 +287,7 @@ footer {
     padding: 20px 10px;
     margin-top: 40px;
     font-size: 0.9rem;
-    color: #718096;
+    color: #4a5568;
     border-top: 1px solid #e2e8f0;
 }
 
@@ -313,10 +313,10 @@ footer {
     input,
     textarea,
     button {
-        font-size: 0.98rem;
+        font-size: 1rem;
     }
 
-    section {
+    main > section {
         padding: 24px;
         margin-bottom: 24px;
     }
@@ -340,7 +340,7 @@ footer {
         font-size: 1.35rem;
     }
 
-    section {
+    main > section {
         padding: 18px;
         margin-bottom: 20px;
     }
@@ -361,5 +361,26 @@ footer {
 
     button {
         padding: 13px 18px;
+    }
+}
+
+
+/* Controles de leitura em voz alta */
+.leitor-voz button:hover:not(:disabled) {
+    background-color: #eef3f8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    form button:hover {
+        transform: none;
     }
 }
