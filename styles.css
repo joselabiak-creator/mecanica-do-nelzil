@@ -365,7 +365,7 @@ footer {
 }
 
 
-/* Controles de leitura em voz alta */
+
 .leitor-voz button:hover:not(:disabled) {
     background-color: #eef3f8;
 }
